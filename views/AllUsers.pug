@@ -1,0 +1,45 @@
+//- display list of all users
+
+doctype html
+include Menu
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title All Users
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
+
+  body
+    div.container-fluid
+      table(class="table table-bordered table-hover table-responsive")
+        thead(class="thead-dark")
+          tr
+            th First Name
+            th Last Name
+            th Date of Birth
+            th Address 1
+            th Address 2
+            th City
+            th Postal Code
+            th Country
+            th Phone Number
+            th Email
+            th User Notes
+            th Actions
+
+        tbody
+          each user in findAllUser
+            tr
+              td #{user.firstName}
+              td #{user.lastName}
+              td #{user.dateOfBirth}
+              td #{user.address1}
+              td #{user.address2}
+              td #{user.city}
+              td #{user.postalCode}
+              td #{user.country}
+              td #{user.phoneNumber}
+              td #{user.email}
+              td #{user.userNotes}
+              td
+                a.btn.btn-primary(href=`/editUser/${user._id}`) Edit

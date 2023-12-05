@@ -1,0 +1,89 @@
+//- Edit user data web page
+
+doctype html
+include Menu
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Edit Information Form
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
+  body
+    div.container
+      h2.my-4 Edit Information Form
+
+      form(action=`/editUser/${findById._id}`, id="userForm", method="post")
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="firstName") First Name:
+              input(type="text", class="form-control", id="firstName", name="firstName", value=findById.firstName, required)
+          div.col-md-6
+            div.form-group
+              label(for="lastName") Last Name:
+              input(type="text", class="form-control", id="lastName", name="lastName", value=findById.lastName, required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="dateOfBirth") Date of Birth:
+              input(type="date", class="form-control", id="dateOfBirth", name="dateOfBirth", value=findById.dateOfBirth, required)
+          div.col-md-6
+            div.form-group
+              label(for="phoneNumber") Phone Number:
+              input(type="tel", class="form-control", id="phoneNumber", name="phoneNumber", value=findById.phoneNumber, required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="address1") Address 1:
+              input(type="text", class="form-control", id="address1", name="address1", value=findById.address1, required)
+          div.col-md-6
+            div.form-group
+              label(for="address2") Address 2:
+              input(type="text", class="form-control", id="address2", name="address2", value=findById.address2)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="city") City:
+              input(type="text", class="form-control", id="city", name="city", value=findById.city, required)
+          div.col-md-6
+            div.form-group
+              label(for="postalCode") Postal Code:
+              input(type="text", class="form-control", id="postalCode", name="postalCode", value=findById.postalCode, required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="country") Country:
+              input(type="text", class="form-control", id="country", name="country", value=findById.country, required)
+          div.col-md-6
+            div.form-group
+              label(for="email") Email:
+              input(type="email", class="form-control", id="email", name="email", value=findById.email, required)
+
+        div.row
+          div.col-md-12
+            div.form-group
+              label(for="userNotes") User Notes:
+              textarea(class="form-control", id="userNotes", name="userNotes", required, rows="4", cols="50")!= findById.userNotes
+        
+            button(type="button", class="btn btn-primary my-3 mr-4", onclick="updateUser()") Update User
+            button(type="button", class="btn btn-danger my-3", onclick="deleteUser()") Delete User
+
+  script.
+    function updateUser() {
+      var userId = "#{findById._id}";
+      document.getElementById('userForm').action = `/editUser/${userId}`;
+      document.getElementById('userForm').method = 'post';
+      document.getElementById('userForm').submit();
+    }
+
+  script.
+    function deleteUser() {
+      var userId = "#{findById._id}";
+      document.getElementById('userForm').action = `/deleteUser/${userId}`;
+      document.getElementById('userForm').method = 'delete';
+      document.getElementById('userForm').submit();
+    }

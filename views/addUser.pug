@@ -1,0 +1,71 @@
+//- Add user webpage
+
+doctype html
+include Menu
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    //- bootstrap
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
+  body
+    div.container
+      h2.my-4 User Information Form
+
+      form(action="/addUser", method="post")
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="firstName") First Name:
+              input(type="text", id="firstName", name="firstName", class="form-control", required)
+          div.col-md-6
+            div.form-group
+              label(for="lastName") Last Name:
+              input(type="text", id="lastName", name="lastName", class="form-control", required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="dateOfBirth") Date of Birth:
+              input(type="date", id="dateOfBirth", name="dateOfBirth", class="form-control", required)
+          div.col-md-6
+            div.form-group
+              label(for="phoneNumber") Phone Number:
+              input(type="tel", id="phoneNumber", name="phoneNumber", class="form-control", required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="address1") Address 1:
+              input(type="text", id="address1", name="address1", class="form-control", required)
+          div.col-md-6
+            div.form-group
+              label(for="address2") Address 2:
+              input(type="text", id="address2", name="address2", class="form-control")
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="city") City:
+              input(type="text", id="city", name="city", class="form-control", required)
+          div.col-md-6
+            div.form-group
+              label(for="postalCode") Postal Code:
+              input(type="text", id="postalCode", name="postalCode", class="form-control", required)
+
+        div.row
+          div.col-md-6
+            div.form-group
+              label(for="country") Country:
+              input(type="text", id="country", name="country", class="form-control", required)
+          div.col-md-6
+            div.form-group
+              label(for="email") Email:
+              input(type="email", id="email", name="email", class="form-control", required)
+
+        div.form-group
+          label(for="userNotes") User Notes:
+          textarea(id="userNotes", name="userNotes", class="form-control", required, rows="4", cols="50")
+
+        input(type="submit", value="Submit", class="btn btn-primary mt-3")
