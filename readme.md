@@ -25,3 +25,6 @@ Before you begin, ensure you have the following installed on your machine:
    in terminal to start this project
 
 2. **Clone the Folder:**
+
+   https://github.com/amarjitmangarhia/crud_operations.git
+   gh repo clone amarjitmangarhia/crud_operations
