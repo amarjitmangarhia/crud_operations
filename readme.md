@@ -18,8 +18,12 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Unzip the Folder:**
 
-   unzip this file and open index.js in vscode and run
+   unzip this file 
 
+   (this file does not contain node_modules so run npm install first to install required packages)
+   
+   then run 
+   
    nodemon index.js
    
    in terminal to start this project
